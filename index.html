@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Website & QR Analyzer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <header>
+        <h1>Website & QR Analyzer</h1>
+      </header>
+
+      <div class="tabs">
+        <button class="tab active" data-tab="qr">Scan QR Code</button>
+        <button class="tab" data-tab="url">Analyze URL</button>
+      </div>
+
+      <div class="input-section active" id="qr-section">
+        <div class="drop" id="drop">
+          <div style="text-align:center">
+            <p class="small">Drop a QR code image here or select a file. Supported: JPG, PNG, GIF, WebP, BMP.</p>
+          </div>
+          <img id="previewImg" class="preview" alt="Preview" style="display:none" />
+          <div class="controls">
+            <input id="fileInput" type="file" accept="image/*" style="display:none" />
+            <button class="btn" id="chooseBtn">Choose Image</button>
+            <button class="btn secondary" id="scanBtn">Scan & Analyze</button>
+            <button class="btn secondary" id="cameraBtn">Use Camera</button>
+            <button class="btn secondary" id="stopCamBtn" style="display:none">Stop Camera</button>
+          </div>
+          <canvas id="hiddenCanvas" style="display:none"></canvas>
+          <p id="status" class="small"></p>
+        </div>
+      </div>
+
+      <div class="input-section" id="url-section">
+        <div style="margin-bottom:12px">
+          <label>Enter URL to analyze</label>
+          <input type="url" class="url-input" id="urlInput" placeholder="https://example.com or paste any link here..." />
+        </div>
+        <div class="controls">
+          <button class="btn" id="analyzeBtn">Analyze Website</button>
+          <button class="btn secondary" id="clearBtn">Clear</button>
+        </div>
+        <p id="urlStatus" class="small"></p>
+      </div>
+
+      <footer class="small">Analyzes websites for safety and content. QR codes are decoded client-side for privacy.</footer>
+    </div>
+
+    <aside class="card side">
+      <div>
+        <label>Analysis Results</label>
+        <div id="resultBox" class="result-box">
+          <p class="small" style="color:#94a3b8;text-align:center;margin:60px 0;">
+            Choose an option above to analyze a website or QR code. Results will appear here with safety information.
+          </p>
+        </div>
+      </div>
+    </aside>
+  </div>
+  <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsqr/dist/jsQR.js"></script>
+
+</body>
+</html>
