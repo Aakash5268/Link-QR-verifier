@@ -7,7 +7,8 @@ const fetch = require('node-fetch');
 const { URL } = require('url');
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
+
 
 // Middleware (these help our server work properly)
 app.use(cors()); // Allows frontend to talk to backend
@@ -314,4 +315,5 @@ app.listen(PORT, () => {
 process.on('SIGINT', () => {
   console.log('\n👋 Shutting down server...');
   process.exit(0);
+
 });
